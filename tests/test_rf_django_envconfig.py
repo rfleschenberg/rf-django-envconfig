@@ -1,5 +1,6 @@
-from hypothesis import given, assume
 import hypothesis.strategies as st
+from hypothesis import assume
+from hypothesis import given
 
 from rf_django_envconfig import get_bool
 
