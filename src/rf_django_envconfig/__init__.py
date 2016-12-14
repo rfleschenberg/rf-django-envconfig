@@ -9,14 +9,14 @@ def get_bool(env, name, default=False):
 
     The following values are considered ``False``:
 
-        * 'False'
-        * 'false'
-        * 'Off'
-        * 'off'
-        * '0'
-        * 'No'
-        * 'no'
-        * ''
+        * ``'False'``
+        * ``'false'``
+        * ``'Off'``
+        * ``'off'``
+        * ``'0'``
+        * ``'No'``
+        * ``'no'``
+        * ``''``
 
     Any other value is considered ``True``.
     """
