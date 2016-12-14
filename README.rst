@@ -60,7 +60,17 @@ Overview
 
 Helpers to configure Django settings by environment variables
 
-* Free software: BSD license
+The goal of this package is to help making your Django settings configurable
+via environment variables, while keeping everything as simple and decoupled as
+possible.
+
+
+Related work
+------------
+* https://12factor.net/
+* https://github.com/doismellburning/django12factor
+* https://github.com/joke2k/django-environ
+
 
 Installation
 ============
