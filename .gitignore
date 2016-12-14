@@ -1,5 +1,7 @@
 *.py[cod]
 
+.hypothesis
+
 # C extensions
 *.so
 
