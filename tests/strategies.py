@@ -35,8 +35,8 @@ def comma_separated_values(draw, elements=st.text()):
 @st.composite
 def non_memory_db_url(draw):
     scheme = draw(st.sampled_from(DB_SCHEMES.keys()))
-    user = draw(st.text(min_size=1, alphabet=RFC_3986_UNRESERVED))
-    password = draw(st.text(min_size=1, alphabet=RFC_3986_UNRESERVED))
+    user = draw(st.text(alphabet=RFC_3986_UNRESERVED))
+    password = draw(st.text(alphabet=RFC_3986_UNRESERVED))
     hostname = draw(st.text(min_size=1, alphabet=RFC_3986_UNRESERVED))
     port = draw(st.integers(min_value=1, max_value=65535))
     database = draw(st.text(min_size=1, alphabet=RFC_3986_UNRESERVED))
