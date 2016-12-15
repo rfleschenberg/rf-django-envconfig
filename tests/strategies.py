@@ -1,7 +1,11 @@
 import hypothesis.strategies as st
 
-NAIVE_ALPHA = [
-    chr(x) for x in range(0, 128) if chr(x).isalpha()
+UPPERCASE = [chr(x) for x in range(65, 91)]
+LOWERCASE = [chr(x) for x in range(97, 123)]
+DIGITS = [chr(x) for x in range(48, 58)]
+
+RFC_3986_UNRESERVED = UPPERCASE + LOWERCASE + DIGITS + [
+    '-', '_', '.', '~',
 ]
 
 
@@ -31,11 +35,11 @@ def comma_separated_values(draw, elements=st.text()):
 @st.composite
 def non_memory_db_url(draw):
     scheme = draw(st.sampled_from(DB_SCHEMES.keys()))
-    user = draw(st.text(min_size=1, alphabet=NAIVE_ALPHA))
-    password = draw(st.text(min_size=1, alphabet=NAIVE_ALPHA))
-    hostname = draw(st.text(min_size=1, alphabet=NAIVE_ALPHA))
+    user = draw(st.text(min_size=1, alphabet=RFC_3986_UNRESERVED))
+    password = draw(st.text(min_size=1, alphabet=RFC_3986_UNRESERVED))
+    hostname = draw(st.text(min_size=1, alphabet=RFC_3986_UNRESERVED))
     port = draw(st.integers(min_value=1, max_value=65535))
-    database = draw(st.text(min_size=1, alphabet=NAIVE_ALPHA))
+    database = draw(st.text(min_size=1, alphabet=RFC_3986_UNRESERVED))
     url = '%s://%s:%s@%s:%s/%s' % (scheme, user, password,
                                    hostname, port, database)
     return (url, {
