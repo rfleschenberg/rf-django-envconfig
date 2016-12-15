@@ -2,13 +2,13 @@ import hypothesis.strategies as st
 from hypothesis import assume
 from hypothesis import given
 
-from .strategies import DB_SCHEMES
-from .strategies import comma_separated_values
-from .strategies import db_url
-
 from rf_django_envconfig import get_bool
 from rf_django_envconfig import get_db_url
 from rf_django_envconfig import get_list
+
+from .strategies import DB_SCHEMES
+from .strategies import comma_separated_values
+from .strategies import db_url
 
 FALSE_VALUES = [
     'False',
